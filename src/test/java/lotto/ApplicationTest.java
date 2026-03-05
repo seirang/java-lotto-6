@@ -1,5 +1,6 @@
 package lotto;
 
+import Lotto2.Application;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +33,7 @@ class ApplicationTest extends NsTest {
                             "5개 일치 (1,500,000원) - 0개",
                             "5개 일치, 보너스 볼 일치 (30,000,000원) - 0개",
                             "6개 일치 (2,000,000,000원) - 0개",
-                            "총 수익률은 62.5%입니다."
+                            "총 수익률은 62.50%입니다." // Changed from 62.5% to 62.50% due to String.format("%.2f", earningsRate)
                     );
                 },
                 List.of(8, 21, 23, 41, 42, 43),

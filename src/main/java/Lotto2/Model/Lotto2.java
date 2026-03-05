@@ -43,12 +43,17 @@ public class Lotto2 {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
         }
 
-        for (int num : numbers) {                     // 숫자가 범위를 넘어가면 예외처리
-            if (num < 0 || num > 45) {
-                throw new IllegalArgumentException("[Error] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+        // 중복 번호 체크
+        if (numbers.stream().distinct().count() != 6) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 중복될 수 없습니다.");
+        }
+
+        for (int num : numbers) {
+            if (num < 1 || num > 45) {
+                throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
             }
         }
     }
